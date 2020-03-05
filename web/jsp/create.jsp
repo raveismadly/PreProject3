@@ -12,7 +12,7 @@
 </head>
 <body>
 <form method="post">
-    <a href="read.jsp">Read</a>
+    <a href="read">Read</a>
     <table>
         <tr>
             <td>Name</td>

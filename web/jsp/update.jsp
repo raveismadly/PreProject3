@@ -13,8 +13,8 @@
     <title>Update</title>
 </head>
 <body>
-<a href="create.jsp">Create</a>
-<a href="read.jsp">Read</a>
+<a href="create">Create</a>
+<a href="read">Read</a>
 <jsp:useBean id="haveThisUser" type="model.User" scope="request"/>
 <c:if test="${haveThisUser!=null}">
 <form action="update" method="post">

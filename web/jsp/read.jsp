@@ -13,7 +13,7 @@
     <title>Read</title>
 </head>
 <body>
-<a href="create.jsp">Create</a>
+<a href="create">Create</a>
 <table>
     <th>Id</th>
     <th>Name</th>

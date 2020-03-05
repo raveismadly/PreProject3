@@ -13,8 +13,8 @@
     <title>Delete</title>
 </head>
 <body>
-<a href="create.jsp">Create</a>
-<a href="read.jsp">Read</a>
+<a href="create">Create</a>
+<a href="read">Read</a>
 <jsp:useBean id="user" scope="request" type="model.User"/>
     <form method="post" name="delete">
         <table>

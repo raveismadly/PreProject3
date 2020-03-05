@@ -16,7 +16,7 @@ public class DBHelper {
     private static Connection connection;
     private static SessionFactory sessionFactory;
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         if (connection == null) {
             connection = getMYSQLConnection();
         }
@@ -60,7 +60,7 @@ public class DBHelper {
     private static String UserConnect = propertiesConnect.getProperty("username");
     private static String PasswordConnect = propertiesConnect.getProperty("password");
 
-    private Connection getMYSQLConnection() {
+    private static Connection getMYSQLConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

@@ -19,8 +19,9 @@ public class UserHibernateDAO implements UserDAO {
     @Override
     public void addUser(User user) {
         try (Session session = sessionFactory.openSession()) {
-            Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(user);
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.save(user);
             transaction.commit();
         }
     }
