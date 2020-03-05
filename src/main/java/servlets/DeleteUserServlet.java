@@ -1,5 +1,6 @@
 package servlets;
 
+import model.User;
 import service.ServiceImpl;
 
 import javax.servlet.ServletException;
@@ -15,11 +16,17 @@ public class DeleteUserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        Long id = Long.parseLong(req.getParameter("id"));
+        User user;
+        user = service.getUserById(id);
+        req.setAttribute("user",user);
+        req.getRequestDispatcher("jsp/delete.jsp").forward(req,resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Long id = Long.parseLong(req.getParameter("id"));
+        service.deleteUser(id);
+        resp.sendRedirect("read");
     }
 }

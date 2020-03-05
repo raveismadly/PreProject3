@@ -1,5 +1,6 @@
 package servlets;
 
+import model.User;
 import service.ServiceImpl;
 
 import javax.servlet.ServletException;
@@ -11,15 +12,25 @@ import java.io.IOException;
 
 @WebServlet(name = "/update")
 public class UpdateUserServlet extends HttpServlet {
-    private ServiceImpl service= ServiceImpl.getInstance();
+    private ServiceImpl service = ServiceImpl.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        Long id = Long.parseLong(req.getParameter("id"));
+        User haveThisUser = service.getUserById(id);
+        req.setAttribute("haveThisUser", haveThisUser);
+        req.getRequestDispatcher("jsp/update.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        Long id = Long.parseLong(req.getParameter("id"));
+        String name = req.getParameter("name");
+        String surname = req.getParameter("surname");
+        Integer age = Integer.parseInt(req.getParameter("age"));
+        if (name != null || surname != null || age != null) {
+            service.updateUser(new User(id, name, surname, age));
+        }
+        resp.sendRedirect("read");
     }
 }
