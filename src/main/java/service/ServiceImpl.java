@@ -6,7 +6,7 @@ import model.User;
 
 import java.util.List;
 
-public class ServiceImpl {
+public class ServiceImpl implements Service{
     private static ServiceImpl service;
     private static UserDAO userDao;
     public static ServiceImpl getInstance(){

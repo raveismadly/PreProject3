@@ -1,6 +1,7 @@
 package servlets;
 
 import model.User;
+import service.Service;
 import service.ServiceImpl;
 
 import javax.servlet.ServletException;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @WebServlet("/read")
 public class ReadUserServlet extends HttpServlet {
-    private ServiceImpl service = ServiceImpl.getInstance();
+    private Service service = ServiceImpl.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
