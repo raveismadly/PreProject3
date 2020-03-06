@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "/update")
+@WebServlet("/update")
 public class UpdateUserServlet extends HttpServlet {
     private ServiceImpl service = ServiceImpl.getInstance();
 
@@ -19,7 +19,7 @@ public class UpdateUserServlet extends HttpServlet {
         Long id = Long.parseLong(req.getParameter("id"));
         User haveThisUser = service.getUserById(id);
         req.setAttribute("haveThisUser", haveThisUser);
-        req.getRequestDispatcher("jsp/update.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/jsp/update.jsp").forward(req, resp);
     }
 
     @Override

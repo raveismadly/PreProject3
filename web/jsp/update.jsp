@@ -15,27 +15,21 @@
 <body>
 <a href="create">Create</a>
 <a href="read">Read</a>
-<jsp:useBean id="haveThisUser" type="model.User" scope="request"/>
+<jsp:useBean id="haveThisUser" scope="request" type="model.User"/>
 <c:if test="${haveThisUser!=null}">
-<form action="update" method="post">
+<form action="update" METHOD="post">
     </c:if>
     <table>
         <c:if test="${haveThisUser!=null}">
-            <input type="hidden" value="<c:out value='${haveThisUser.id}'/>" name="id"/>
+            <input type="hidden" name="id" value="<c:out value='${haveThisUser.id}'/>"/>
         </c:if>
-        <tr>
-            <th>Name</th>
-            <td><label>
-                <input name="name" value="<c:out value='${haveThisUser.name}'/>"/>
-            </label></td>
+        <tr><th>Name</th>
+            <td><input name="name" type="text" value="<c:out value='${haveThisUser.name}'/>"/></td>
+
             <th>Surname</th>
-            <td><label>
-                <input name="name" value="<c:out value='${haveThisUser.surname}'/>"/>
-            </label></td>
+            <td><input name="surname" type="text" value="<c:out value='${haveThisUser.surname}'/>"/></td>
             <th>Age</th>
-            <td><label>
-                <input name="name" value="<c:out value='${haveThisUser.age}'/>"/>
-            </label></td>
+            <td><input name="age" type="number"value="<c:out value='${haveThisUser.age}'/>"/></td>
         </tr>
         <tr>
             <td>
@@ -44,7 +38,6 @@
         </tr>
     </table>
 </form>
-
 
 </body>
 </html>

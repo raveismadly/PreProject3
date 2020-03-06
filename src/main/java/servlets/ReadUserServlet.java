@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "/read")
+@WebServlet("/read")
 public class ReadUserServlet extends HttpServlet {
     private ServiceImpl service = ServiceImpl.getInstance();
 
@@ -19,7 +19,7 @@ public class ReadUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> list = service.getAllUsers();
         req.setAttribute("allUsers",list);
-        req.getRequestDispatcher("/jsp/read.jsp").forward(req,resp);
+        req.getRequestDispatcher("WEB-INF/jsp/read.jsp").forward(req,resp);
     }
 
     @Override

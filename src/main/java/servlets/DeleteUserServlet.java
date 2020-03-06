@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "/delete")
+@WebServlet("/delete")
 public class DeleteUserServlet extends HttpServlet {
     private ServiceImpl service= ServiceImpl.getInstance();
 
@@ -20,7 +20,7 @@ public class DeleteUserServlet extends HttpServlet {
         User user;
         user = service.getUserById(id);
         req.setAttribute("user",user);
-        req.getRequestDispatcher("jsp/delete.jsp").forward(req,resp);
+        req.getRequestDispatcher("WEB-INF/jsp/delete.jsp").forward(req,resp);
     }
 
     @Override
