@@ -21,9 +21,9 @@ public class UserJdbcDAO implements UserDAO {
         try (PreparedStatement pr = connection.prepareStatement("insert into users(name, surname, age) VALUES " +
                 "(?,?,?)")) {
             connection.setAutoCommit(false);
-            pr.setString(1, "name");
-            pr.setString(2, "surname");
-            pr.setString(3, "age");
+            pr.setString(1, user.getName());
+            pr.setString(2, user.getSurname());
+            pr.setInt(3, user.getAge());
             pr.executeUpdate();
             connection.commit();
             connection.setAutoCommit(true);
@@ -68,7 +68,7 @@ public class UserJdbcDAO implements UserDAO {
             pr.setString(1, user.getName());
             pr.setString(2, user.getSurname());
             pr.setInt(3, user.getAge());
-            pr.setLong(3, user.getId());
+            pr.setLong(4, user.getId());
             if (pr.executeUpdate() > 0) {
                 updated = true;
                 connection.commit();
